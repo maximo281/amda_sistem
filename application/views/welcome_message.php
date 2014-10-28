@@ -30,7 +30,8 @@ a:hover
 <body>
 	<head><h1>Sistema Autos Amda</h1></head>
 	<div>
-	</div>
+<?php echo  BASEPATH.'libraries/excel_reader2.php'; ?>
+        </div>
 	<div style='height:20px;'></div>  
     <div>
 		<?php echo $output; ?>

@@ -41,6 +41,8 @@ class Upload extends CI_Controller
    }
    public function importar()
    {
+      print_r ($_FILES);
+       /*
      $name   = $_FILES['file']['name'];
     $tname    = $_FILES['file']['tmp_name'];
 
@@ -72,7 +74,7 @@ class Upload extends CI_Controller
     // Imprimimos el HMTL
 
     echo $html; 
-  
+  */
    }
    
 }

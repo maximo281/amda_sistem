@@ -1,0 +1,4 @@
+ Se configura el archivo php.ini en /opt/lampp/etc/
+ 
+ Se cammbia la configuracion de archivos temporales "tmp_name"
+ se redirige hacia una carpeta con atributos de escritura 
