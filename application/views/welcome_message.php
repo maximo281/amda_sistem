@@ -30,9 +30,17 @@ a:hover
 <body>
 	<head><h1>Sistema Autos Amda</h1></head>
 	<div>
-<?php echo  BASEPATH.'libraries/excel_reader2.php'; ?>
+
         </div>
-	<div style='height:20px;'></div>  
+	<div style='height:20px;'></div>
+      <?php  $correcto = $this->session->flashdata('correcto');
+    if ($correcto) 
+    {
+    ?>
+       <span id="registroCorrecto"><?= $correcto ?></span>
+    <?php
+    }
+    ?>
     <div>
 		<?php echo $output; ?>
     </div>

@@ -5,9 +5,9 @@
     <body>
 <body>
 	<head><h1>Sistema Autos Amda</h1></head>
-	<h3>Seleccionar archivo Excel</h3>
+	<h3>Selecciona un archivo Excel</h3>
     <form name="frmload" method="post" action="<?php echo base_url() ?>index.php/upload/cargar" enctype="multipart/form-data">
-        <input type="file" name="file" /> &nbsp; &nbsp; &nbsp; <input type="submit" value="----- IMPORTAR -----" />
+        <input type="file" name="file" /> &nbsp; &nbsp; &nbsp; <input type="submit" value=" Cargar datos " />
     </form>
     </body>
 </html>

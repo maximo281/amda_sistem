@@ -10,6 +10,7 @@ class Welcome extends CI_Controller {
                 $this->load->helper('form');
 		$this->load->library('grocery_CRUD');
                 $this->load->library('amda_excel');
+                $this->load->library('session');
                 
 	}
 	public function index()

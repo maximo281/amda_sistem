@@ -4,8 +4,11 @@ class Upload extends CI_Controller
 {
    function __construct() {
        parent::__construct();
+     
        $this->load->helper(array('form','url'));
        $this->load->library('upload');
+       $this->load->model('autos_model');
+       $this->load->library('session');
    } 
    function index()
    {
@@ -49,10 +52,10 @@ class Upload extends CI_Controller
                  //cargamos el archivo
                  $objPHPExcel= $objReader->load($tname);
                  
-                 $dim = $objPHPExcel->getActiveSheet()->calculateWorksheetDimension();
-                 
+                 $dim = $objPHPExcel->getActiveSheet()->calculateWorksheetDataDimension();
+                 //echo $dim;
                  //list coloca en array $start y $end
-                 list($start,$end)=explode(':',$dim);
+               list($start,$end)=explode(':',$dim);
                 if(!preg_match('#([A-Z]+)([0-9]+)#', $start, $rslt)){
 				return false;
 			}
@@ -65,9 +68,11 @@ class Upload extends CI_Controller
                     $table = "insert into ventas_publico_automoviles values";
 			for($v=($start_v+1); $v<=$end_v; $v++){
 				//empieza lectura horizontal
-				$table .= "(";
+                                //echo $v;
+				$table .= "(NULL,";
 				for($h=$start_h; ord($h)<=ord($end_h); $this->pp($h)){
                                   // if($h== "A"){echo "a";}
+                                   // echo ord($h);
                                     $cellValue = $this->get_cell($h.$v, $objPHPExcel);
 					//$table .= "t";
 					if($cellValue !== null){
@@ -87,17 +92,30 @@ class Upload extends CI_Controller
 			}
 			$table .= ";";
 			
-			echo $table;
+			// $table;
                         // ya esta construido el query con los datos de el archivo de excel 
                         //le pasamos el query a la funcion insert_data
 		    
-                    
+                   $this->insert_data($table);
             }	
 	
   
 
    }
-   public function importar()
+   function insert_data($table)
+   {
+       
+      if($this->autos_model->insert($table))
+           {
+           $this->session->set_flashdata('correcto', 'Datos Cargados correctamente!');
+                redirect('welcome', 'refresh');
+           }else
+               {
+               echo "datos no insertados";
+               }
+       
+   }
+  /* public function importar()
    {
      
      $name   = $_FILES['file']['name'];
@@ -110,7 +128,7 @@ class Upload extends CI_Controller
 echo $name.'<br>';
 echo $tname;*/
     // Buscamos nuestra clase para leer el Excel
-    require_once BASEPATH.'libraries/excel_reader2.php';
+ /*   require_once BASEPATH.'libraries/excel_reader2.php';
     // Instanciamos nuestra clase
     $dato = new Spreadsheet_Excel_Reader($name);
 
@@ -132,13 +150,13 @@ echo $tname;*/
         $html .="</tr>";
       }
     }
-    $html .="</table>"; 
+    $html .="</table>";/* 
 
     // Imprimimos el HMTL
 
     echo $html; 
  
-   }
+   }*/
    function get_cell($cell, $objPHPExcel){
 				//select one cell
 				$objCell = ($objPHPExcel->getActiveSheet()->getCell($cell));
