@@ -211,6 +211,14 @@ table th
 	background-position: 0px 3px;
 	padding-left: 20px;
 }
+/*israel*/
+.flexigrid div.fbutton span.filter
+{
+	background: url(images/Filter.gif) no-repeat;
+	background-position: 0px 3px;
+	padding-left: 20px;
+}
+/*israel*/
 .flexigrid div.fbutton span.print {
 	background:url(images/print.png) no-repeat;
 	background-position: 0px 3px;

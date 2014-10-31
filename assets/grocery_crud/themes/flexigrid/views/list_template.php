@@ -68,7 +68,7 @@ if($success_message !== null){?>
 			</div>
 		</div>
 		<?php }?>
-            <div class="tDiv">
+           
                 <div class="tDiv2">
                     <div class="fbutton">
                         <div>
@@ -78,12 +78,21 @@ if($success_message !== null){?>
                         </div>
                         
                     </div>
-                </div>
+                
                     
-            </div>
+            
             		<div class="btnseparator">
 			</div>
-	
+	</div>
+            <div class ="tDiv2">
+                <div class="fbutton">
+                    <div>
+                        <a href="<?php echo base_url('index.php/filter/');?>" title="crear filtros" class="add-anchor add_button">
+                            <span class="filter">Crear Filtro Personalizado</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 		<div class="tDiv3">
 			<?php if(!$unset_export) { ?>
         	<a class="export-anchor" data-url="<?php echo $export_url; ?>" target="_blank">
