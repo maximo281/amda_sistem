@@ -21,5 +21,12 @@ class Autos_Model extends CI_Model
           //      }
         return $this->db->affected_rows();
     }
+    
+    function select_meses()
+    {
+        $sql="SELECT * FROM meses ORDER BY id_mes ASC";
+        
+        return $this->db->query($sql);
+    }
 }
 

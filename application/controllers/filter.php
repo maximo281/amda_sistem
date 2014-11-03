@@ -30,8 +30,13 @@ class Filter extends CI_Controller
     }
     function check_anio()
     {
-    $data['anio']="anio";
+        $data['anio']="anio";
         $this->load->view('filter_anio',$data);
+    }
+    function meses()
+    {
+       $data['meses']=$this->autos_model->select_meses();
+       $this->load->view('filter_meses',$data);
     }
 }
 

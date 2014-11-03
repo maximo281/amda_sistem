@@ -18,5 +18,25 @@ $(document).ready(function(){
         }
     });/*FIN #anio*/
 /*---------------------------------------------------------------*/
+    $('#mes').click(function(event){
+        
+        if($(this).is(":checked")){
+            
+            $.ajax({
+               type:'POST',
+               url:'filter/meses',
+               data:'meses',
+               success:function(data)
+               {
+                   $("div#meses").html(data);
+               }
+            });
+        }else{
+           $("div#meses").html(""); 
+        }
+    });
+        
+        
+    
   
 });

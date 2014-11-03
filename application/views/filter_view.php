@@ -14,9 +14,10 @@
             <span><input id="anio" type="checkbox" name="anio">A&ntilde;o</span>
             <div id="anios"></div>
                 
-            <span><input type="checkbox" name="filter_1[]">Mes</span>
-            <span><input type="checkbox" name="filter_1[]">Estado</span>
-            <span><input type="checkbox" name="filter_1[]">Ciudad</span>
+            <span><input id="mes" type="checkbox" name="mes">Mes</span>
+            <div id="meses"></div>
+            <span><input  id ="estado" type="checkbox" name="estado">Estado</span>
+            <span><input id="ciudad" type="checkbox" name="ciudad">Ciudad</span>
         </div>
         <div class="separacion_h"></div>
         <div class="carateristicas">
