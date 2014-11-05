@@ -1,5 +1,6 @@
-<html>
+<!DOCTYPE html>
     <head>
+        <meta charset="utf-8">
         <title><?=$title?></title>
     </head>
     <body>
@@ -16,7 +17,28 @@
                 
             <span><input id="mes" type="checkbox" name="mes">Mes</span>
             <div id="meses"></div>
-            <span><input  id ="estado" type="checkbox" name="estado">Estado</span>
+            <span><!--<input  id ="estado" type="checkbox" name="estado">-->
+                Estado
+                <select name="estado">
+                   
+                    
+               
+                
+                <?php
+                    if($estados->num_rows()>0)
+                        {
+                            foreach($estados->result() as $row_estado)
+                                {
+                                ?>
+                
+                                <option value="<?=$row_estado->clave?>"><?=$row_estado->nombre?></option> 
+                
+                                <?php
+                                 }
+                        }
+                ?>
+                     </select>
+            </span>
             <span><input id="ciudad" type="checkbox" name="ciudad">Ciudad</span>
         </div>
         <div class="separacion_h"></div>

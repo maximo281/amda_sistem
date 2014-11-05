@@ -12,6 +12,7 @@ class Filter extends CI_Controller
     function index()
     {
      $data['title']="Filtros Base de Datos";
+    $data['estados']=  $this->autos_model->select_estados();
         $this->load->view('filter_view',$data);
     }
     function consultation()
@@ -38,6 +39,7 @@ class Filter extends CI_Controller
        $data['meses']=$this->autos_model->select_meses();
        $this->load->view('filter_meses',$data);
     }
+  
 }
 
 

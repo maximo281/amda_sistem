@@ -28,5 +28,10 @@ class Autos_Model extends CI_Model
         
         return $this->db->query($sql);
     }
+    function select_estados()
+    {
+        $sql="SELECT clave,nombre FROM estados";
+        return $this->db->query($sql);
+    }
 }
 

@@ -36,7 +36,8 @@ $(document).ready(function(){
         }
     });
         
-        
+     /*-----------------------------------------*/
+     /*CARGA DE COMBOBOX ESTADOS*/
     
   
 });
