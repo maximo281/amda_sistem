@@ -3,6 +3,22 @@
         <meta charset="utf-8">
         <title><?=$title?></title>
     </head>
+    <style>
+        .dropdown dd ul {
+    background-color: #4F6877;
+    border:0;
+    color:#fff;
+    /*display:none;*/
+    left:0px;
+    padding: 2px 15px 2px 5px;
+    /*position:absolute;*/
+    top:2px;
+    width:280px;
+    list-style:none;
+    height: 150px;
+    overflow: auto;
+}
+    </style>
     <body>
         
         <h3>Consultar Informacion</h3>
@@ -19,25 +35,59 @@
             <div id="meses"></div>
             <span><!--<input  id ="estado" type="checkbox" name="estado">-->
                 Estado
-                <select name="estado">
+                
+                <dl class="dropdown">
+                    <dt>
+                    <a href="#">
+                        <span class="hida">
+                            SELECCIONA ESTADO
+                        </span>
+                        <p></p>
+                    </a>
+                    </dt>
+                    <dd>
+                        <div class="mutliSelect">
+                            <ul>
+                                <?php if($estados->num_rows()>0)
+                                    {
+                                        foreach($estados->result() as $row_estado)
+                                            {
+                                            ?>
+                                            <li>
+                                                 <input type="checkbox" value="<?=$row_estado->clave?>"><?=$row_estado->nombre?></input>
+                                             </li>
+                                
+                                                
+                                        <?php
+                                            }
+                                    }
+                                    ?>
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+                
+                <!--<select name="estado">-->
                    
                     
-               
+                <div class="filter_estado_00">
+                    
+                </div>
                 
                 <?php
-                    if($estados->num_rows()>0)
+                    /*if($estados->num_rows()>0)
                         {
                             foreach($estados->result() as $row_estado)
-                                {
+                                {*/
                                 ?>
                 
-                                <option value="<?=$row_estado->clave?>"><?=$row_estado->nombre?></option> 
+                                <!--<option value="<?//=$row_estado->clave?>"><?//=$row_estado->nombre?></option> -->
                 
                                 <?php
-                                 }
-                        }
+                                 /*}
+                        }*/
                 ?>
-                     </select>
+                     <!--</select>-->
             </span>
             <span><input id="ciudad" type="checkbox" name="ciudad">Ciudad</span>
         </div>
@@ -51,6 +101,7 @@
        
         <div><input type="submit" name="consultar" value="Consutar"></div>
         </form>
+       
         <footer>
             
         </footer>
